@@ -5,7 +5,6 @@ package io.zipcoder;
  * @author tariq
  */
 public class StringsAndThings {
-
     /**
      * Given a string, count the number of words ending in 'y' or 'z' -- so the 'y' in "heavy" and the 'z' in "fez" count,
      * but not the 'y' in "yellow" (not case sensitive). We'll say that a y or z is at the end of a word if there is not an alphabetic
@@ -14,8 +13,14 @@ public class StringsAndThings {
      *           countYZ("day fez"); // Should return 2
      *           countYZ("day fyyyz"); // Should return 2
      */
-    public Integer countYZ(String input){
-        return null;
+    public Integer countYZ(String input) {
+       int count = 0;
+
+       if (Character.isLetter('y')) {
+            count += 1;
+        }
+
+        return count;
     }
 
     /**
@@ -28,7 +33,7 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        return base.replace(remove,"");
     }
 
     /**
@@ -51,7 +56,9 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        boolean happy = false;
+        for (int i =0; i < input.length())
+        return happy;
     }
 
 
@@ -63,6 +70,13 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        int count =0;
+        for (int i =0; i <input.length()-2;i++) {
+            char temp = input.charAt(i);
+            if (temp == input.charAt(i+1) && temp == input.charAt(i+2)) {count++;}
+        }
+        return count;
+
+
     }
 }
