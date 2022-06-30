@@ -15,11 +15,12 @@ public class StringsAndThings {
      */
     public Integer countYZ(String input) {
        int count = 0;
-
-       if (Character.isLetter('y')) {
-            count += 1;
-        }
-
+       String[] words = input.split("\\W+");
+       for (int i = 0; i < words.length; i++) {
+           if (input.endsWith("y") || input.endsWith("yz") || input.endsWith("z")) {
+               count++;
+           }
+       }
         return count;
     }
 
@@ -45,7 +46,16 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        int isCount = 0;
+        int notCount = 0;
+        boolean isNot = false;
+        if (input.contains("is")) {isCount++;}
+        if (input.contains("not")) {notCount++;}
+        if (isCount == notCount) {
+            isNot = true;
+        }
+
+        return isNot;
     }
 
     /**
@@ -57,7 +67,13 @@ public class StringsAndThings {
      */
     public Boolean gIsHappy(String input){
         boolean happy = false;
-        for (int i =0; i < input.length())
+        for (int i = 0; i < input.length(); i++) {
+            for (int j = i + 1; j < input.length(); j++) {
+                if (input.charAt(i) == input.charAt(j) || input.charAt(i) == input.charAt(j-1)) {
+                    happy = true;
+                }
+            }
+        }
         return happy;
     }
 
