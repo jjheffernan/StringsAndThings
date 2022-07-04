@@ -1,6 +1,8 @@
 package io.zipcoder;
 
 
+import java.util.Arrays;
+
 /**
  * @author tariq
  */
@@ -46,15 +48,17 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
+        String[] words = input.split(" ");
         int isCount = 0;
         int notCount = 0;
         boolean isNot = false;
-        if (input.contains("is")) {isCount++;}
-        if (input.contains("not")) {notCount++;}
+        for (int i = 0; i < words.length; i++) {
+            if (Arrays.asList(words[i]).contains("is")) {isCount++;}
+            if (Arrays.asList(words[i]).contains("not")) {notCount++;}
+        }
         if (isCount == notCount) {
             isNot = true;
         }
-
         return isNot;
     }
 
